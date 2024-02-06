@@ -10,9 +10,15 @@ var collname = "GIS"
 
 func TestGeoIntersects(t *testing.T) {
 	mconn := SetConnection("MONGOSTRING", dbname)
-	coordinates := Point{
-		Coordinates: []float64{
-			107.56875846592652, -6.892669045544224,
+	coordinates := Polygon{
+		Coordinates: [][][]float64{
+			{
+				{107.56877558251222, -6.895876554186401},
+				{107.56883856366545, -6.896088113924989},
+				{107.56936061935926, -6.8954288530374015},
+				{107.569202117533, -6.895273632048372},
+				{107.56877558251222, -6.895876554186401},
+			},
 		},
 	}
 	datagedung := GeoIntersects(mconn, collname, coordinates)
